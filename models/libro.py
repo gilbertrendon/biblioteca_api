@@ -1,7 +1,15 @@
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, Integer, String, DateTime
+from datetime import datetime
+Base = declarative_base
+class Book(Base):
+    __tablename__ = 'books'
+    id = Column(Integer(), primary_key=True)
+    title = Column(String(50), nullable=True, unique=False)
+    autor = Column(String(50), nullable=True, unique=False)
+    year = Column(DateTime(), default=datetime.now())
+    isbn = Column(String(50), nullable=True, unique=False)
 
-
-class Book:
     def __init__(self, id):
         self.id = id
 
