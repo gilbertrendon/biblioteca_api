@@ -1,9 +1,9 @@
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import declarative_base
 from sqlalchemy import Column, Integer, String, DateTime, create_engine
 from datetime import datetime
 from sqlalchemy.orm import sessionmaker
 
-Base = declarative_base
+Base = declarative_base()
 class Book(Base):
     __tablename__ = 'books'
     id = Column(Integer(), primary_key=True)
@@ -33,4 +33,4 @@ session = Session()
 if __name__ == '__main__':
     Base.metada.drop_all(engine)
     Base.metadata.create_all(engine)
-    
+    pass
