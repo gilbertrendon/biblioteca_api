@@ -3,8 +3,9 @@ from sqlalchemy import Column, Integer, String, DateTime, create_engine
 from datetime import datetime
 from sqlalchemy.orm import sessionmaker
 
-Base = declarative_base
-class Book(Base):
+engine = create_engine('postgresql://postgres:@serverOne/databaseOne')
+# Base = declarative_base()
+class Book(engine):
     __tablename__ = 'books'
     id = Column(Integer(), primary_key=True)
     title = Column(String(50), nullable=True, unique=False)
@@ -26,11 +27,9 @@ class Book(Base):
     
     def isbn(self, isbn):
         self.isbn = isbn
-engine = create_engine('postgresql://eduardo:@localhost/pythondb')
 Session = sessionmaker(engine)
 session = Session()
 
 if __name__ == '__main__':
-    Base.metada.drop_all(engine)
-    Base.metadata.create_all(engine)
-    
+   
+    pass
