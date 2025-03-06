@@ -1,35 +1,37 @@
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String, DateTime, create_engine
+from sqlalchemy import Column, Integer, String, DateTime, create_engine, MetaData
 from datetime import datetime
 from sqlalchemy.orm import sessionmaker
 
-engine = create_engine('postgresql://postgres:@serverOne/databaseOne')
+engine = create_engine('postgresql+psycopg2://postgres:1234:@localhost:5432/postgres')
+
 class Book(engine):
     __tablename__ = 'books'
-    id = Column(Integer(), primary_key=True)
-    title = Column(String(50), nullable=True, unique=False)
-    autor = Column(String(50), nullable=True, unique=False)
-    year = Column(DateTime(), default=datetime.now())
-    isbn = Column(String(50), nullable=True, unique=False)
+    #id = Column(Integer(), primary_key=True)
+    title = Column(String(50))
+    # autor = Column(String(50), nullable=True, unique=False)
+    # year = Column(DateTime(), default=datetime.now())
+    # isbn = Column(String(50), nullable=True, unique=False)
 
-    def __init__(self, id):
-        self.id = id
+    # def __init__(self, id):
+    #     self.id = id
 
-    def title(self, title):
-        self.title = title
+    # def title(self, title):
+    #     self.title = title
 
-    def autor(self, autor):
-        self.autor = autor
+    # def autor(self, autor):
+    #     self.autor = autor
     
-    def year(self, year):
-        self.year = year
+    # def year(self, year):
+    #     self.year = year
     
-    def isbn(self, isbn):
-        self.isbn = isbn
+    # def isbn(self, isbn):
+    #     self.isbn = isbn
 Session = sessionmaker(engine)
 session = Session()
 
 if __name__ == '__main__':
-    # Base.metada.drop_all(engine)
-    # Base.metadata.create_all(engine)
+    metada = MetaData()
+    metada.drop_all(engine)
+    # metada.create_all(engine)
     pass

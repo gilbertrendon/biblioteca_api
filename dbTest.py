@@ -83,56 +83,11 @@ print(records44)
 
 
 
-
-#     con.rollback()
-
-# records = [
-
-#     (123456, 'John', 25, 'M', 50000.00),
-
-#     (234651, 'Juli', 35, 'F', 75000.00),
-
-#     (345121, 'Fred', 48, 'M', 125000.00),
-
-#     (562412, 'Rosy', 28, 'F', 52000.00)
-
-#     ]
-
-# sql = '''
-
-#        INSERT INTO EMPLOYEE VALUES ( ?, ?, ?, ?, ?)
-
-#       '''
-# try:
-
-#     cursor.executemany(sql, records)
-
-#     con.commit()
-
-# except Exception as e:
-
-#     print("Error Message :", str(e))
-
-#     con.rollback()
-
-# sql = '''
-#        SELECT * FROM EMPLOYEE
-#       '''
-# try:
-#     cursor.execute(sql)
-# except  Exception as e:
-#     print('Unable to fetch data.', str(e))
-
-# records = cursor.fetchall()
-
-# sql44 = '''
-#         SELECT * FROM EMPLOYEE 
-#         '''
-# try:
-#     cursor.execute(sql44)
-# except  Exception as e:
-#     print('Unable to fetch data.', str(e))
-
-# records44 = cursor.fetchall()
-# print(records44)
 con.close()
+
+
+# PARA LISTAR LAS TABLAS EN MI BD
+SELECT table_name 
+FROM information_schema.tables 
+WHERE table_schema='public' 
+AND table_type='BASE TABLE'; 
