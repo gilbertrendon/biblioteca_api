@@ -23,8 +23,12 @@ session = Session()
 
 class Book(Base):
     __tablename__ = 'books'
-    id = Column(Integer, primary_key=True)
-    title = Column(String(50))
+    id = Column(Integer(), primary_key=True)
+    title = Column(String(50), nullable=True, unique=False)
+    autor = Column(String(50), nullable=True, unique=False)
+    year = Column(DateTime(), default=datetime.now())
+    isbn = Column(String(50), nullable=True, unique=False)
+
 
 
 
