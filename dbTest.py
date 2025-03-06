@@ -10,7 +10,7 @@ sql1 = 'DROP TABLE IF EXISTS BOOK'
 sql2 = '''
 
        CREATE TABLE BOOK (
-       BID INT(6) NOT NULL UNIQUE,
+       BID integer NOT NULL UNIQUE,
        TITLE varchar(20),
        AUTOR varchar(20),
        PUBYEAR varchar(20),
