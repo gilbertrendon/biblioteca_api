@@ -16,7 +16,7 @@ if __name__ == '__main__':
         # INSERTAR UN LIBRO
         # lib.create_book(lib)
         # BORRAR UN LIBRO
-        lib.delete_book(1)
+        # lib.delete_book(1)
         # CONSULTAR UN LIBRO POR ID
         # lib.get_book(2)
         # ACTUALIZAR UN LIBRO

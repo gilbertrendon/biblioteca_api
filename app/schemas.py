@@ -37,6 +37,10 @@ def create(bk:dict):
     Book.update_book(libro) 
     return "actualizado"
 
+@app.delete("/{id}")
+def index(id:int):
+    db.delete_book(id)
+    return "borrado"
 
 # if __name__ == '__main__':
 #     pass
