@@ -18,15 +18,24 @@ def index(id:int):
 
 @app.post("/libro")
 def create(bk:dict):
-    print("////////////////////////////////////////////////////////////////")
-    print(bk)
     libro = Book()
     libro.autor = bk["autor"]
     libro.title = bk["title"]
     libro.year = bk["year"]
     libro.isbn = bk["isbn"]
-    libro_creado = Book.create_book(libro) 
-    return "asdf"
+    Book.create_book(libro) 
+    return "creado"
+
+@app.post("/ulibro")
+def create(bk:dict):
+    libro = Book()
+    libro.id = bk["id"]
+    libro.autor = bk["autor"]
+    libro.title = bk["title"]
+    libro.year = bk["year"]
+    libro.isbn = bk["isbn"]
+    Book.update_book(libro) 
+    return "actualizado"
 
 
 # if __name__ == '__main__':
