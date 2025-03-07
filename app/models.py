@@ -27,28 +27,40 @@ class Book(Base):
     
         
     @staticmethod
-    def createTable(testengine):
+    def createTable():
         # se borra la tabla por si existe 
-        Base.metadata.drop_all(testengine)
+        Base.metadata.drop_all(engine)
         # Crea las tablas
-        Base.metadata.create_all(testengine)
-        # session.commit()
-        # session.close()
+        Base.metadata.create_all(engine)
+        session.commit()
+        session.close()
         
     @staticmethod
     def create_book(lb):
         session.add(lb)
+        session.commit()
+        session.close() 
     
     @staticmethod
     def delete_book(idb):
         book_to_delete = session.query(Book).filter_by(id=idb).first()
         session.delete(book_to_delete)
+        session.commit()
+        session.close() 
 
     @staticmethod
     def get_book(idb):
         book= session.query(Book).filter_by(id=idb).first()
         print(book)
-        return book
+        session.commit()
+        # session.close()
+        return {'status': 'success', 'libro': {
+        'title': book.title,
+        'author': book.autor,
+        'year': book.year,
+        'isbn': book.isbn
+    }}
+        
         
     @staticmethod
     def update_book(book):
@@ -59,36 +71,7 @@ class Book(Base):
         book_to_update.isbn = book.isbn
         session.add(book_to_update)
         session.commit()
-        
-if __name__ == '__main__':
-        lib = Book(
-        title="Harry potter y el caliz de fuego",
-        autor="Jk rowling",
-        year="2019-12-04",
-        isbn="e5d4"
-        )
-    
-        # SessionLocal = sessionmaker(bind=engine)
-        # session = SessionLocal()
-        # CREAR TABLA
-        # lib.createTable(engine)
-        # INSERTAR UN LIBRO
-        # lib.create_book(lib)
-        # BORRAR UN LIBRO
-        # lib.delete_book(1)
-        # CONSULTAR UN LIBRO POR ID
-        # lib.get_book(2)
-        # ACTUALIZAR UN LIBRO
-        libro = lib.get_book(2)
-
-    # MODIFICAR LOS ATRIBUTOS
-        libro.title = 'Harry Potter y el cáliz de fuego'
-        libro.autor = 'Jk Rowling2'
-        libro.year = '2023-11-04'
-        libro.isbn = 'isbn2'
-        lib.update_book(libro)
-        
-        session.commit()
         session.close()  
+        
   
     
