@@ -14,3 +14,11 @@ PARA MIRAR LAS TABLAS EN LA BD
 SELECT table_name
 FROM information_schema.tables
 WHERE table_schema = 'public'; -- O el esquema que estés usando
+
+
+Para ejecutar fastapi
+uvicorn schemas:app --reload
+
+
+repositorio ejemplo fastapi
+https://github.com/wpcodevo/fastapi_sqlalchemy/blob/master/app/note.py
