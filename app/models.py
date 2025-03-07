@@ -1,4 +1,5 @@
-from sqlalchemy import create_engine, Column, Integer, String, DateTime
+from sqlalchemy import create_engine, Column
+from sqlalchemy import Integer, String, DateTime
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime
@@ -23,7 +24,7 @@ class Book(Base):
     isbn = Column(String(50), nullable=True, unique=False)
     
     def __str__(self):
-        return self.title
+        return f"Libro: {self.title} por {self.autor} ({self.year})" # Corregido
     
         
     @staticmethod
@@ -37,6 +38,8 @@ class Book(Base):
         
     @staticmethod
     def create_book(lb):
+        print("*************************************************")
+        print(str(lb))
         session.add(lb)
         session.commit()
         session.close() 
