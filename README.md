@@ -1,5 +1,8 @@
 ENDPOINTS
 
+PARA PROBAR CON SWAGER
+http://127.0.0.1:8000/docs
+
 obtenerlibro
 http://127.0.0.1:8000/1
 
@@ -55,11 +58,13 @@ Tuto entorno virtual
 https://www.youtube.com/watch?v=XSAjQDM8ZS4
 Creacion de tabla en el modelo con alchemy
 
+PRUEBAS UNITARIAS
+parado en la carpeta app
+pytest tests
+
 Falta:
  Listar libros: Todos los libros o filtrados por autor o año.
 Buscar libros por título o autor.
-Swagger: Generación de documentación de la API.
-        Documentación clara y concisa de la API utilizando Swagger.
 Pytest: Framework de pruebas unitarias y de integración.
         o Cobertura de código con pruebas unitarias y de integración.
         o Pruebas de los endpoints de la API.
