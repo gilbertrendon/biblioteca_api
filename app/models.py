@@ -26,7 +26,6 @@ class Book(Base):
     def __str__(self):
         return f"Libro: {self.title} por {self.autor} ({self.year})" # Corregido
     
-        
     @staticmethod
     def createTable():
         # se borra la tabla por si existe 
@@ -63,7 +62,6 @@ class Book(Base):
         'year': book.year,
         'isbn': book.isbn
     }}
-        
         
     @staticmethod
     def update_book(book):

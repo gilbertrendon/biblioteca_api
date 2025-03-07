@@ -14,7 +14,7 @@ if __name__ == '__main__':
         # CREAR TABLA
         # lib.createTable()
         # INSERTAR UN LIBRO
-        # lib.create_book(lib)
+        lib.create_book(lib)
         # BORRAR UN LIBRO
         # lib.delete_book(1)
         # CONSULTAR UN LIBRO POR ID
