@@ -3,6 +3,8 @@ from sqlalchemy import Integer, String, DateTime
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime
+# import sys
+# print(sys.path)
 #  Cambia esto por la URL de tu base de datos
 DATABASE_URL = "postgresql://postgres:1234@localhost:5432/asdf"
 
@@ -28,6 +30,7 @@ class Book(Base):
     
     @staticmethod
     def createTable():
+        print("asdfsadfasdfasdfasdfasdfsdfasdfasf")
         # se borra la tabla por si existe 
         Base.metadata.drop_all(engine)
         # Crea las tablas
@@ -35,6 +38,10 @@ class Book(Base):
         session.commit()
         session.close()
         
+    
+
+    
+    
     @staticmethod
     def create_book(lb):
         print("*************************************************")
@@ -63,6 +70,30 @@ class Book(Base):
         'isbn': book.isbn
     }}
         
+    @staticmethod
+    def get_books_by_author(author):
+        books = session.query(Book).filter_by(autor=author).all()
+        print("*****************************************************************")
+        print(books)
+        session.close()
+        return books
+
+    @staticmethod
+    def get_books_by_year(year):
+        books = session.query(Book).filter_by(year=year).all()
+        print("*****************************************************************")
+        print(books)
+        session.close()
+        return books
+        
+    @staticmethod
+    def get_book_by_author_and_year(author, year):
+        books = session.query(Book).filter(Book.author == author, Book.year == year).all()
+        print("*****************************************************************")
+        print(books)
+        session.close()
+        return books
+    
     @staticmethod
     def update_book(book):
         book_to_update = session.query(Book).filter_by(id=book.id).first()

@@ -3,8 +3,8 @@ from  models import Book
 
 if __name__ == '__main__':
         lib = Book(
-        title="Harry potter y el caliz de qwer",
-        autor="Jk asdf",
+        title="Harry potter y el caliz de iopiuopiopio",
+        autor="Jkioupopuopiuoupop",
         year="2019-12-05",
         isbn="e5d4"
         )
@@ -14,7 +14,7 @@ if __name__ == '__main__':
         # CREAR TABLA
         # lib.createTable()
         # INSERTAR UN LIBRO
-        lib.create_book(lib)
+        # lib.create_book(lib)
         # BORRAR UN LIBRO
         # lib.delete_book(1)
         # CONSULTAR UN LIBRO POR ID
@@ -26,6 +26,9 @@ if __name__ == '__main__':
         # libro.year = '2023-11-04'
         # libro.isbn = 'isbn2'
         # lib.update_book(libro)
-        
+        asdf = lib.get_books_by_year('2019-12-05')
+        # asdf = lib.get_books_by_author_and_year(author='Jkioupopuopiuoupop',year='2019-12-05')
+
+        print(asdf)
         # session.commit()
         # session.close()  
