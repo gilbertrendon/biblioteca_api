@@ -58,6 +58,9 @@ Tuto entorno virtual
 https://www.youtube.com/watch?v=XSAjQDM8ZS4
 Creacion de tabla en el modelo con alchemy
 
+https://www.youtube.com/watch?v=I8WTQGUUYHo
+docker 
+
 PRUEBAS UNITARIAS
 parado en la carpeta app
 pytest tests
